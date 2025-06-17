@@ -29,11 +29,38 @@ Turn a simple list of emails into a rich dataset with company profiles, funding 
 2. Create a `.env.local` file with your API keys:
    ```
    FIRECRAWL_API_KEY=your_firecrawl_key
+   FIRECRAWL_BASE_URL=https://firecrawl.srv789673.hstgr.cloud
    OPENAI_API_KEY=your_openai_key
    ```
 3. Install dependencies: `npm install` or `yarn install`
 4. Run the development server: `npm run dev` or `yarn dev`
 5. Open [http://localhost:3000](http://localhost:3000)
+
+### Custom Firecrawl Endpoint
+
+If you run a self-hosted Firecrawl instance, set `FIRECRAWL_BASE_URL` and use it when calling the API:
+
+```ts
+const BASE_URL = process.env.FIRECRAWL_BASE_URL;
+const API_KEY = process.env.FIRECRAWL_API_KEY;
+
+async function scrapeUrl(url: string) {
+  const res = await fetch(`${BASE_URL}/api/scrape`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ url }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`Firecrawl error ${res.status}`);
+  }
+
+  return await res.json();
+}
+```
 
 ## Example Enrichment
 
