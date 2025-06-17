@@ -264,8 +264,10 @@ Each module uses GPT-4o for intelligent data extraction, but follows determinist
 When you clone and run this repository locally, Fire Enrich automatically enables **Unlimited Mode**, removing the restrictions of the public demo. You can configure these limits in [`app/fire-enrich/config.ts`](app/fire-enrich/config.ts):
 
 ```typescript
-const isUnlimitedMode = process.env.FIRE_ENRICH_UNLIMITED === 'true' || 
-                       process.env.NODE_ENV === 'development';
+const isUnlimitedMode =
+  process.env.FIRE_ENRICH_UNLIMITED === 'true' ||
+  process.env.NEXT_PUBLIC_FIRE_ENRICH_UNLIMITED === 'true' ||
+  process.env.NODE_ENV === 'development';
 
 export const FIRE_ENRICH_CONFIG = {
   CSV_LIMITS: {
