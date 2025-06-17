@@ -1,6 +1,6 @@
 // Check if running in unlimited mode (when cloned/self-hosted)
 const isUnlimitedMode =
-  process.env.FIRE_ENRICH_UNLIMITED === 'true' || process.env.NEXT_PUBLIC_FIRE_ENRICH_UNLIMITED === 'true' ||
+  process.env.FIRE_ENRICH_UNLIMITED === 'true' || process.env.NEXT_PUBLIC_FIRE_ENRICH_UNLIMITED === 'true' || process.env.NEXT_PUBLIC_FIRE_ENRICH_UNLIMITED === 'true' ||
   process.env.NEXT_PUBLIC_FIRE_ENRICH_UNLIMITED === 'true' ||
   process.env.NODE_ENV === 'development';
 
