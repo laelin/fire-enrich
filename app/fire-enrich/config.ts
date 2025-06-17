@@ -9,7 +9,7 @@ export const FIRE_ENRICH_CONFIG = {
   // CSV upload limits
   CSV_LIMITS: {
     MAX_ROWS: isUnlimitedMode ? Infinity : 15,
-    MAX_COLUMNS: isUnlimitedMode ? Infinity : 5,
+    MAX_COLUMNS: isUnlimitedMode ? Infinity : 20, // Increased from 5 to 20 columns
   },
   
   // Processing configuration
