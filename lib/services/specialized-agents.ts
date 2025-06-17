@@ -307,9 +307,12 @@ export class SpecializedAgentService {
   private firecrawl: FirecrawlApp;
   private apiKey: string;
 
-  constructor(apiKey: string, firecrawlApiKey: string) {
+  constructor(apiKey: string, firecrawlApiKey: string, firecrawlBaseUrl?: string) {
     this.apiKey = apiKey;
-    this.firecrawl = new FirecrawlApp({ apiKey: firecrawlApiKey });
+    this.firecrawl = new FirecrawlApp({
+      apiKey: firecrawlApiKey,
+      apiUrl: firecrawlBaseUrl || undefined
+    });
   }
 
   async enrichWithSpecializedAgents(

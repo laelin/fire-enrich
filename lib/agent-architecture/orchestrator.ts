@@ -7,12 +7,13 @@ import { OpenAIService } from '../services/openai';
 export class AgentOrchestrator {
   private firecrawl: FirecrawlService;
   private openai: OpenAIService;
-  
+
   constructor(
     private firecrawlApiKey: string,
-    private openaiApiKey: string
+    private openaiApiKey: string,
+    private firecrawlBaseUrl?: string
   ) {
-    this.firecrawl = new FirecrawlService(firecrawlApiKey);
+    this.firecrawl = new FirecrawlService(firecrawlApiKey, firecrawlBaseUrl);
     this.openai = new OpenAIService(openaiApiKey);
   }
   

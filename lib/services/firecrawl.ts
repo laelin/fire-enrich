@@ -4,8 +4,11 @@ import type { SearchResult } from '../types';
 export class FirecrawlService {
   private app: FirecrawlApp;
 
-  constructor(apiKey: string) {
-    this.app = new FirecrawlApp({ apiKey });
+  constructor(apiKey: string, baseUrl?: string) {
+    this.app = new FirecrawlApp({
+      apiKey,
+      apiUrl: baseUrl || undefined
+    });
   }
 
   async search(

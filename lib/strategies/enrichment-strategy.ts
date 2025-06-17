@@ -7,6 +7,7 @@ import type { CSVRow, EnrichmentField, EnrichmentResult, SearchResult } from '..
 export interface EnrichmentStrategyOptions {
   firecrawlApiKey: string;
   openaiApiKey: string;
+  firecrawlBaseUrl?: string;
 }
 
 export class EnrichmentStrategy {
@@ -14,7 +15,7 @@ export class EnrichmentStrategy {
   private openai: OpenAIService;
 
   constructor(options: EnrichmentStrategyOptions) {
-    this.firecrawl = new FirecrawlService(options.firecrawlApiKey);
+    this.firecrawl = new FirecrawlService(options.firecrawlApiKey, options.firecrawlBaseUrl);
     this.openai = new OpenAIService(options.openaiApiKey);
   }
 
